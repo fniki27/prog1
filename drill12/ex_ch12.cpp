@@ -2,10 +2,10 @@
 #include "Graph.h"
 
 int main()try{
-	using namespace Graph_lib;
-	Point tl{100,100};
+    using namespace Graph_lib;
+    Point tl{100,100};
 	
-	//---1.feladat---
+    //---1.feladat---
     Simple_window win1{tl,600,800,"ex1"};
     Rectangle rec(Point(100,100),150,50);
     rec.set_color(Color::blue);
@@ -18,21 +18,21 @@ int main()try{
     polyg.add(Point(100,300));
     polyg.set_color(Color::red);
     win1.attach(polyg);
-	rec.move(0,150);
-	poly.move(0,150);
+    rec.move(0,150);
+    poly.move(0,150);
 	
-	win1.wait_for_button();
+    win1.wait_for_button();
 
-	//---2.feladat---
-	Simple_window win2{tl,600,800,"ex2"};
-	Rectangle rect{Point{150,150},100,50};
-	Text t{Point{170,180},"Hi"};
-	win2.attach(rec2);
-	win2.attach(t);
-	rect.move(0,150);
-	t.move(0,150);
+    //---2.feladat---
+    Simple_window win2{tl,600,800,"ex2"};
+    Rectangle rect{Point{150,150},100,50};
+    Text t{Point{170,180},"Hi"};
+    win2.attach(rec2);
+    win2.attach(t);
+    rect.move(0,150);
+    t.move(0,150);
 	
-	win2.wait_for_button();
+    win2.wait_for_button();
     
     //---3.feladat---
     Simple_window win3{tl,600,800,"ex3"};
@@ -50,9 +50,9 @@ int main()try{
     win3.wait_for_button();
    
 	
-	//---4.feladat---
-	Simple_window win4{tl,600,800,"ex4"};
-	Rectangle rect1(Point(100,100),100,100);
+    //---4.feladat---
+    Simple_window win4{tl,600,800,"ex4"};
+    Rectangle rect1(Point(100,100),100,100);
     rect1.set_fill_color(Color::white);
     win4.attach(rect1);
 
@@ -88,11 +88,11 @@ int main()try{
     rect9.set_fill_color(Color::white);
     win4.attach(rect9);
 
-	win4.wait_for_button();
+    win4.wait_for_button();
 	
 	
-	//---5.feladat---
-	Simple_window win5{tl,900,1000,"ex5"};
+    //---5.feladat---
+    Simple_window win5{tl,900,1000,"ex5"};
     Rectangle rct(Point(100, 100), (x_max() / 3) * 2, (y_max() / 4) * 3);
     rct.set_color(Color::black);
 
@@ -103,28 +103,24 @@ int main()try{
     win5.attach(rct);
     win5.attach(frame);
 	
-	win5.wait_for_button();
+    win5.wait_for_button();
 	
-	//---6/1.feladat---
-	Simple_window win6{tl,600,400,"ex6"};
-	Rectangle rec6{Point{0,0},1000,1000};
-	win6.attach(rec6);
+    //---6/1.feladat---
+    Simple_window win6{tl,600,400,"ex6"};
+    Rectangle rec6{Point{0,0},1000,1000};
+    win6.attach(rec6);
 	
-	win6.wait_for_button();
-	
-	//Nem lesz látható az alakzat, mert az ablakon kívülre esik. Hogy látható legyen, ahhoz meg kell nagyobbítani a képernyőt.
+    win6.wait_for_button(); //Nem lesz látható az alakzat, mert az ablakon kívülre esik. Hogy látható legyen, ahhoz meg kell nagyobbítani a képernyőt.
 	
 	
-	//----6/2.feladat----
-	Simple_window win6{tl,2000,2000,"ex6"};
-	Rectangle r6{Point{200,200},600,300};
-	win6.attach(r6);
-	win6.wait_for_button();
-	
-	//Nem tudunk olyan ablakot csinálni, ami nagyobb a képernyőnknél, mert a program a mi képernyőnkhöz igazítja az ablakot.
+    //----6/2.feladat----
+    Simple_window win6{tl,2000,2000,"ex6"};
+    Rectangle r6{Point{200,200},600,300};
+    win6.attach(r6);
+    win6.wait_for_button(); //Nem tudunk olyan ablakot csinálni, ami nagyobb a képernyőnknél, mert a program a mi képernyőnkhöz igazítja az ablakot.
 	
 	
-	//---7.feladat---
+    //---7.feladat---
     Simple_window win7{tl,600,400,"ex7"};
     Line_style house_style(Line_style::solid,4);
 
@@ -165,13 +161,11 @@ int main()try{
     chimney.set_fill_color(Color::dark_magenta);
     win7.attach(chimney);
 
-	win7.wait_for_button();
+    win7.wait_for_button();
 	
 	
-	//---8.feladat----
-	Simple_window win8{tl,700,800,"ex8"};
-
-	
+    //---8.feladat----
+    Simple_window win8{tl,700,800,"ex8"};
     Circle c0(Point(150, 200), 50);
     c0.set_color(Color::blue);
     c0.set_style(Line_style(Line_style::solid,12));
@@ -194,20 +188,20 @@ int main()try{
     win8.attach(c3);
     win8.attach(c4);
 
-	win8.wait_for_button();
+    win8.wait_for_button();
     
     
-	//---9.feladat---
-	Simple_window win9{tl,700,800,"cat");
+    //---9.feladat---
+    Simple_window win9{tl,700,800,"cat");
     Image img(Point(50,50),"kitten.jpg");
     win9.attach(img);
     win9.set_label("Cat in a hat");
 
     Text txt(Point(50,280),"This is a very cute cat");
     win9.attach(txt);
-	win9.wait_for_button();
+    win9.wait_for_button();
 	
-	return 0;
+    return 0;
 }catch(exception& e){
 cerr<<"exception: "<<e.what();
 return 1;
