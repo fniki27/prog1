@@ -58,7 +58,8 @@ try{
 
     return 0;
 
-}catch(exception& e){
+}
+catch(exception& e){
     cerr<<e.what()<<endl;
     return 1;
 }
