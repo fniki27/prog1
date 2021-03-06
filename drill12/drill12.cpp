@@ -35,8 +35,6 @@ try{
     y.set_color(Color::dark_green);
     y.label.set_color(Color::dark_red);
 
-    Mark m(Point(100,200),'*');
-
     Function s (one, rmin, rmax, origo, n_points, xscale, yscale);
     
     Function sq (square, rmin, rmax, origo, n_points, xscale, yscale);
@@ -77,7 +75,6 @@ try{
     win.attach(cosine);
     win.attach(poly);
     win.attach(c);
-    win.attach(m);
     win.attach(r);
     win.attach(t);
     win.wait_for_button();
