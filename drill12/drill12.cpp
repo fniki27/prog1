@@ -1,89 +1,64 @@
-#include "Simple_window.h"
+
 #include "Graph.h"
-
-
-double one(double) { return 1; }
-double square(double x) { return x*x; }
+#include "Simple_window.h"
 
 int main()
 try{
-
     using namespace Graph_lib;
 
-    int xmax = 600;
-    int ymax = 400;
+    Point tl{100,100};
 
-    int xorig = xmax/2;
-    int yorig = ymax/2;
+    Simple_window win {tl,600,400,"My Window"};
 
-    int rmin = -10;
-    int rmax = 10;
+    Axis xa {Axis::x, Point{20,300},280,10,"x axis"};
 
-    int n_points = 500;
+    Axis ya {Axis::y, Point{20,300},280,10,"y axis"};
+    ya.set_color(Color::dark_blue);
+    ya.label.set_color(Color::dark_red);
 
-    Simple_window win {Point{100,100}, xmax, ymax, "My window"};
-
-    Point origo {xorig, yorig};
-
-    int xlength = xmax - 40;
-    int ylength = ymax - 40;
-
-    int xscale = 20, yscale = 20;
-
-    Axis x{Axis::x, Point{50, yorig}, xlength, xlength/xscale, "x "};
-    Axis y{Axis::y, Point{xorig, ylength+20}, ylength, ylength/yscale, "y "};
-    y.set_color(Color::dark_green);
-    y.label.set_color(Color::dark_red);
-
-    Function s (one, rmin, rmax, origo, n_points, xscale, yscale);
-    
-    Function sq (square, rmin, rmax, origo, n_points, xscale, yscale);
-    
-    Function sine{sin,0,100,origo,1000,40,40};
+    Function sine {sin,0,100,Point{20,150},1000,50,50};
     sine.set_color(Color::yellow);
 
-    Function cosine(cos,0,100,Point(20,175),100,10,10);
-
     Polygon poly;
-    poly.add(origo);
-    poly.add(Point{250,300});
-    poly.add(Point{180,150});
-    poly.set_color(Color::dark_magenta);
+    poly.add(Point{300,200});
+    poly.add(Point{350,100});
+    poly.add(Point{400,200});
+    poly.set_color(Color::green);
     poly.set_style(Line_style::dash);
-    poly.set_fill_color(Color::yellow);
+    poly.set_style(Line_style(Line_style::dash,4));
 
-    Text t{Point{90,350},"Hello, graphical world!"};
+    Rectangle r {Point{200,200},100,50};
+    r.set_fill_color(Color::yellow);
+
+    Closed_polyline poly_rect;
+    poly_rect.add(Point{100,50});
+    poly_rect.add(Point{200,50});
+    poly_rect.add(Point{200,100});
+    poly_rect.add(Point{100,100});
+    poly_rect.add(Point{50,75});
+    poly_rect.set_style(Line_style(Line_style::dash,2));
+    poly_rect.set_fill_color(Color::cyan);
+
+    Text t{Point{150,150},"Hello, graphical world!"};
     //t.set_font(Font::times_bold);
-    t.set_font_size(20);
-    t.set_color(Color::red);
+    t.set_font(20);
 
-    Image ii {Point {80,20},"kitten.jpg"};
+    Image ii{Point{150,150},"kitten.jpg"};
 
-    Rectangle r {Point{300,50}, 200, 50};
-    r.set_fill_color(Color::blue);
-    r.set_style(Line_style(Line_style::dash, 4));
-
-    Circle c {Point{100,200}, 50};
-    c.set_fill_color(Color::green);
-    c.set_style(Line_style(Line_style::dot,2));
-
-
-    win.attach(ii);
-    win.attach(x);
-    win.attach(y);
+    win.attach(xa);
+    win.attach(ya);
     win.attach(sine);
-    win.attach(cosine);
     win.attach(poly);
-    win.attach(c);
     win.attach(r);
+    win.attach(poly_rect);
     win.attach(t);
+    win.attach(ii);
+
     win.wait_for_button();
-}
-catch(exception& e){
-    cerr <<"exception: " << e.what() << '\n';
+
+    return 0;
+
+}catch(exception& e){
+    cerr<<e.what()<<endl;
     return 1;
-}
-catch(...){
-    cerr <<"error\n";
-    return 2;
 }
