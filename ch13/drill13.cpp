@@ -3,23 +3,23 @@
 
 int main()
 try{
-	using namespace Graph_lib;
+        using namespace Graph_lib;
+    
+        Simple_window win{Point{100,100}, 800,1000, "My window"};
+	
+        Lines grid;
+        int x_size = 800;
+        int y_size = 800;
 
-	Simple_window win{Point{100,100}, 800,1000, "My window"};
-
-	Lines grid;
-    int x_size = 800;
-    int y_size = 800;
-
-    for (int i = 100; i<=x_size; i+=100) 
-    {
-        grid.add(Point(i,0),Point(i,y_size));
-        grid.add(Point(0,i),Point(x_size,i));
-    }
+        for (int i = 100; i<=x_size; i+=100) 
+        {
+            grid.add(Point(i,0),Point(i,y_size));
+            grid.add(Point(0,i),Point(x_size,i));
+        }
 
     
-    Rectangle r1{Point {0,0},100,100};
-    Rectangle r2{Point {100,100},100,100};
+        Rectangle r1{Point {0,0},100,100};
+        Rectangle r2{Point {100,100},100,100};
 	Rectangle r3{Point {200,200},100,100};
 	Rectangle r4{Point {300,300},100,100};
 	Rectangle r5{Point {400,400},100,100};
@@ -69,7 +69,7 @@ try{
               
             else
                 i4.move(-700,100);
-		}
+	}
 
 
 }
