@@ -43,22 +43,18 @@ void f(B2& b2)
 
 int main() {
 
-    cout<<"B1"<<endl; 
-    b1.vf();
-    b1.f();
-    b1.pvf();
+    //B1 b1;
+    //b1.vf();
+    //b1.f();
 
-    cout<<"D1"<<endl; 
-    D1 d1;
-    d1.vf();
-    d1.f();
-    d1.pvf();
+    //D1 d1;
+    //d1.vf();
+    //d1.f();
 
-    cout<<"B1&"<<endl; 
-    B1& b_ref = d1;
-    b_ref.vf();
-    b_ref.f();
-    b_ref.pvf();
+    //B1& bref = d1;
+    //bref.vf();
+    //bref.f();
+
 
     cout<<"D2"<<endl; 
     D2 d2;
