@@ -1,5 +1,4 @@
 #include "std_lib_facilities.h"
-using namespace std;
 
 class B1 {
 public:
