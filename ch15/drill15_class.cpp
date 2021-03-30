@@ -59,7 +59,7 @@ try {
     
     vector<Person> vp;
 
-    cout << "Enter first_name, second_name, age values separated with spaces! Terminate with 'end end end'.\n";
+    cout << "Enter first_name, second_name, age values separated with spaces! Terminate with 'end end 1'.\n";
 
     for (Person p; cin >> p; ) {
         if (p.first_name() == "end") break;
